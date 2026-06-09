@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飯ログ 事業＆GTM 概要</title>
+<style>
+  :root{
+    --navy:#1F4878; --accent:#58A7CC; --pale:#DEE6F0; --beige:#F1EFE8;
+    --ink:#1c2733; --muted:#5d6b7a; --line:#dfe4ea; --white:#fff;
+    --coral:#D85A30; --pink:#993556; --teal:#0F6E56;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#f6f7f9;color:var(--ink);
+    font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:32px 20px 64px;}
+  header.hero{background:var(--navy);color:#fff;border-radius:16px;padding:28px 30px;margin-bottom:28px;}
+  header.hero .tag{font-size:12px;letter-spacing:.08em;color:var(--pale);text-transform:uppercase;}
+  header.hero h1{margin:6px 0 8px;font-size:26px;font-weight:700;}
+  header.hero p{margin:0;color:#cdd9e8;font-size:14px;}
+  .oneline{background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);
+    border-radius:10px;padding:18px 22px;margin-bottom:28px;font-size:17px;font-weight:600;}
+  .oneline small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:6px;}
+  section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:20px;}
+  h2{font-size:13px;letter-spacing:.06em;color:var(--navy);margin:0 0 14px;
+    padding-bottom:8px;border-bottom:2px solid var(--pale);font-weight:700;}
+  h2 .n{display:inline-block;background:var(--navy);color:#fff;border-radius:6px;
+    width:22px;height:22px;line-height:22px;text-align:center;font-size:12px;margin-right:8px;}
+  p{margin:0 0 12px;}
+  .muted{color:var(--muted);font-size:13.5px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr;}}
+  .card{background:var(--beige);border-radius:10px;padding:14px 16px;}
+  .card.good{background:#eef6f1;border:1px solid #cfe6da;}
+  .card.bad{background:#fbeef0;border:1px solid #f0d4da;}
+  .card h3{margin:0 0 6px;font-size:14px;}
+  .card p{margin:0;font-size:13.5px;color:var(--muted);}
+  ul{margin:0;padding-left:18px;}
+  li{margin-bottom:7px;font-size:14.5px;}
+  .pitch{border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .pitch .lbl{font-size:11px;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:6px;}
+  .pc{background:#eef6f1;} .pc .lbl{background:#cfe6da;color:var(--teal);}
+  .pa{background:var(--pale);} .pa .lbl{background:#bcd2e8;color:var(--navy);}
+  .pb{background:var(--beige);} .pb .lbl{background:#e3dccb;color:#7a6a3a;}
+  .pitch p{margin:0;font-size:15px;font-weight:500;line-height:1.7;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--navy);font-size:12px;background:#fafbfc;}
+  .price{display:flex;gap:14px;flex-wrap:wrap;}
+  .pricebox{flex:1;min-width:150px;background:var(--navy);color:#fff;border-radius:10px;padding:16px 18px;}
+  .pricebox.alt{background:#fff;border:2px solid var(--navy);color:var(--navy);}
+  .pricebox .big{font-size:24px;font-weight:700;}
+  .pricebox small{display:block;font-size:12px;opacity:.85;margin-top:2px;}
+  .funnel{display:flex;flex-direction:column;gap:8px;}
+  .step{display:flex;align-items:center;gap:12px;}
+  .step .dot{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+  .step .body{background:var(--beige);border-radius:8px;padding:9px 14px;flex:1;font-size:14px;}
+  .step .body b{color:var(--navy);}
+  .arrow{margin-left:15px;color:var(--accent);font-size:16px;line-height:1;}
+  .kpi{display:flex;gap:12px;flex-wrap:wrap;}
+  .kpibox{flex:1;min-width:160px;background:var(--pale);border-radius:10px;padding:14px 16px;}
+  .kpibox .v{font-size:15px;font-weight:700;color:var(--navy);}
+  .kpibox .d{font-size:12.5px;color:var(--muted);}
+  .warn{background:#fbeef0;border:1px solid #f0d4da;border-radius:10px;padding:14px 18px;}
+  .warn b{color:var(--pink);}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px;}
+  svg{width:100%;height:auto;display:block;}
+  .legend{font-size:12px;color:var(--muted);margin-top:8px;display:flex;gap:16px;flex-wrap:wrap;}
+  .legend span{display:flex;align-items:center;gap:5px;}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="tag">事業 ＆ GTM 概要 / 内部用</div>
+    <h1>飯ログ — コーチ・レバレッジSaaS</h1>
+    <p>LINEネイティブのコーチ介在型 食事管理インフラ ／ 作成：平田　2026-06-08</p>
+  </header>
+
+  <div class="oneline">
+    飯ログ＝LINEネイティブの「コーチ・レバレッジSaaS」。客側はAI食事ログ（②）として現れ、本体はコーチが多くのクライアントを回すための介在インフラ（⑤）。
+    <small>北極星：売れる資産（exit）。継続収益・低い創業者依存・移転可能なデータ＝「自分から切り離せる資産」を作る。Build to be sellable, sell only if you want.</small>
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>セグメント上の現在地</h2>
+    <p class="muted">横軸＝顧客（左:toC消費者／右:toB事業者）、縦軸＝駆動力（上:プロダクト・データ／下:人・知見）。飯ログの本籍は右側⑤、客側の②は表の顔。カロミルとは重心が逆。</p>
+    <svg viewBox="0 0 880 470" role="img" aria-label="飯ログのセグメント位置地図">
+      <rect x="120" y="30" width="330" height="185" fill="#eef6f1"/>
+      <rect x="450" y="30" width="330" height="185" fill="#DEE6F0"/>
+      <rect x="120" y="215" width="330" height="190" fill="#faece7"/>
+      <rect x="450" y="215" width="330" height="190" fill="#fbeef0"/>
+      <line x1="120" y1="215" x2="780" y2="215" stroke="#c7cfd8"/>
+      <line x1="450" y1="30" x2="450" y2="405" stroke="#c7cfd8"/>
+      <text x="124" y="22" fill="#5d6b7a" font-size="13">↑ プロダクト / データ駆動</text>
+      <text x="124" y="428" fill="#5d6b7a" font-size="13">↓ 人 / 知見駆動</text>
+      <text x="124" y="452" fill="#5d6b7a" font-size="13">← toC（消費者）</text>
+      <text x="660" y="452" fill="#5d6b7a" font-size="13">toB（事業者）→</text>
+      <text x="134" y="50" fill="#0F6E56" font-size="13" font-weight="700">② toCアプリ</text>
+      <text x="464" y="50" fill="#1F4878" font-size="13" font-weight="700">⑤ 事業者向けSaaS</text>
+      <text x="134" y="235" fill="#D85A30" font-size="13" font-weight="700">③ toCコーチング</text>
+      <text x="464" y="235" fill="#993556" font-size="13" font-weight="700">⑤/④ 事業者・教育（知見）</text>
+      <circle cx="190" cy="95" r="7" fill="#0F6E56"/><text x="202" y="100" fill="#1c2733" font-size="13">あすけん / FiNC</text>
+      <circle cx="360" cy="95" r="7" fill="#0F6E56"/><text x="262" y="82" fill="#1c2733" font-size="13">カロミル</text>
+      <path d="M370 99 L560 130" stroke="#0F6E56" stroke-width="2" stroke-dasharray="2 3"/>
+      <text x="430" y="150" fill="#0F6E56" font-size="11">②→⑤へ拡張</text>
+      <circle cx="690" cy="120" r="7" fill="#1F4878"/><text x="600" y="112" fill="#1c2733" font-size="13">eat+</text>
+      <circle cx="200" cy="320" r="7" fill="#D85A30"/><text x="212" y="325" fill="#1c2733" font-size="13">カリン</text>
+      <circle cx="345" cy="345" r="7" fill="#993556"/><text x="150" y="372" fill="#1c2733" font-size="13">協会（小笹/食欲）</text>
+      <rect x="600" y="255" width="150" height="30" rx="7" fill="#1F4878"/>
+      <text x="612" y="275" fill="#fff" font-size="15" font-weight="700">飯ログ ⑤本籍</text>
+      <circle cx="592" cy="270" r="9" fill="#1F4878"/>
+      <path d="M585 264 L405 130" stroke="#8a97a5" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <circle cx="400" cy="127" r="7" fill="#85B7EB"/>
+      <text x="300" y="118" fill="#5d6b7a" font-size="11">②の顔（客側の食事ログ）</text>
+    </svg>
+    <div class="legend">
+      <span><span class="sw" style="background:#1F4878"></span>実線＝本籍（⑤）</span>
+      <span><span class="sw" style="background:#8a97a5"></span>破線＝表の顔（②）</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>狙う相手（ICP）</h2>
+    <div class="grid2">
+      <div class="card good">
+        <h3>◎ 狙う</h3>
+        <p>すでに<b>食事指導をしていて、クライアント10人以上</b>を抱えるトレーナー／ダイエット系ジム／格闘技ジム。手作業の限界に達しており、〜¥8,000でも即決。判定3条件：①食事指導済み ②10人以上 ③LINEでやり取り。</p>
+      </div>
+      <div class="card bad">
+        <h3>× 狙わない（当面）</h3>
+        <p>運動メインで食事指導をしていないトレーナー。痛みがないため何円でも売れない。最初のコホートに1人も入れない。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>差し方（一言ピッチ）</h2>
+    <p class="muted">推し構成：「Cで掴んで、Aで刺す」。恥じていた肩書きが、ここでは最強の掴みになる。Bは補強で後ろ。</p>
+    <div class="pitch pc"><span class="lbl">C ／ つかみ（同業の信頼）</span><p>「元トレーナーで、本も出して、10人以上の食事指導のめんどくささを知ってる。だから自分が欲しくて作りました。」</p></div>
+    <div class="pitch pa"><span class="lbl">A ／ 刺し（時間・レバレッジ＝本命）</span><p>「食事指導してる10人、毎日の返信しんどくないですか？飯ログはAIが各クライアントの数値からフィードバックを下書き。あなたは承認するだけ。しかも全部"あなたの名前"で届く。20人でも回せます。」</p></div>
+    <div class="pitch pb"><span class="lbl">B ／ 補強（成果・継続）</span><p>「"コーチに見られてる"が続くと客は食事を続ける。要対応だけ画面に浮く→ひと言返すだけ。解約が減ります。」</p></div>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>差別化</h2>
+    <table>
+      <tr><th>相手</th><th>関係</th><th>飯ログの立ち位置</th></tr>
+      <tr><td>eat+</td><td>直接競合（⑤）</td><td>同じコーチ介在でも、飯ログは「1人で何十人も見れるレバレッジ（トリアージ＋AI下書き）」＋LINEネイティブの低摩擦で差別化</td></tr>
+      <tr><td>カロミル / あすけん</td><td>隣接（②）</td><td>データ量で戦わない。堀は技術より「指導知見＋salience設計」。客側②は入口にすぎない</td></tr>
+      <tr><td>カリン / 各協会（③④）</td><td>競合ではなく仕入れ先</td><td>彼らの④全振りが新米コーチを量産＝飯ログの顧客を生む。配布エンジンとして利用</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>2層の収益モデル＋価格</h2>
+    <div class="grid2" style="margin-bottom:14px;">
+      <div class="card"><h3>① プログラム費（前金）＝燃料</h3><p>「食事指導を仕組み化して稼ぐ」プログラム。今すぐの現金で運転資金・CACを賄う。協会の講座売上と同じ役割で、燃やして消える。</p></div>
+      <div class="card"><h3>② 飯ログ MRR＝エンジン／資産</h3><p>複利で積む継続収益。最終的に買われるのはこちら。プログラムは消えるが MRR は残る＝exit対象。</p></div>
+    </div>
+    <div class="price">
+      <div class="pricebox"><div class="big">¥7,800<small>／コーチ・月（定価・ICP向け）</small></div></div>
+      <div class="pricebox alt"><div class="big">¥4,800<small>／月（創業者価格・ロック）</small></div></div>
+      <div class="pricebox alt"><div class="big">無料<small>初期コホート 2〜3ヶ月（実績・証言と交換）</small></div></div>
+    </div>
+    <p class="muted" style="margin-top:12px;">価格根拠＝時間。10人の食事指導を手作業で回すと週に数時間溶ける。AI下書きで「人数を倍にしても作業は増えない」が¥8,000を即決させるロジック。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>配布＝B：仕組み化プログラムを入口に（協会モデルの出口だけ資産に挿げ替え）</h2>
+    <div class="funnel">
+      <div class="step"><div class="dot">1</div><div class="body">SNS発信「<b>食事指導で稼ぐトレーナーになる</b>」（自前の集客力を活用）</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="dot">2</div><div class="body"><b>仕組み化プログラム（有料・前金＝燃料）</b></div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="dot">3</div><div class="body">実行エンジンとして<b>飯ログを実装（必須）</b></div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="dot">4</div><div class="body"><b>飯ログMRR（複利で積む・売却対象＝資産）</b></div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="dot">5</div><div class="body">成果を出した卒業生が<b>事例・紹介で次を連れてくる</b></div></div>
+    </div>
+    <p class="muted" style="margin-top:12px;">協会と同じ自己増殖型の funnel。違いはペイロードが「資格（属人・rung3）」ではなく「SaaSサブスク（資産・rung4）」であること。彼らの配布力を借りて、出口を自分のゴールに変える。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span>初期GTM：ファウンディング・コホート</h2>
+    <ul>
+      <li><b>規模：</b>最初は3〜5人に絞る（広く薄くより狭く深く）。雑に10人入れて全員放置が最悪。</li>
+      <li><b>中身：</b>スピード用にパーソナルトレーナー2〜3人＋差別化ウェッジとして格闘技ジム1〜2（減量・計量管理は格闘技で死活問題、競合手薄）。</li>
+      <li><b>条件：</b>無料ファウンダー枠／使い倒し＋感想＋継続率データ＋証言と交換／終了後 ¥4,800 でロック。</li>
+      <li><b>出所：</b>温かい人脈（既存クライアント・知人トレーナー・治療院・ボクシング/空手）。治療院は本業から遠いため後回し。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">8</span>健康診断KPI＋ガードレール</h2>
+    <div class="kpi" style="margin-bottom:14px;">
+      <div class="kpibox"><div class="v">記録継続率 / 解約率</div><div class="d">コーチ別に計測。製品思想（salience）が効いているかの唯一の証明であり、売り文句の根拠。</div></div>
+      <div class="kpibox"><div class="v">飯ログ定着率</div><div class="d">プログラム参加者のうち継続課金で使い続ける割合。主従の確認。</div></div>
+      <div class="kpibox"><div class="v">プル比率</div><div class="d">コンサル無しで導入される有料アカウント数。自力で引かれているか／押している時だけ動くか。</div></div>
+    </div>
+    <div class="warn">
+      <p style="margin:0 0 6px;"><b>守るべき一線</b></p>
+      <p style="margin:0;font-size:13.5px;color:#5d6b7a;">①プログラム＝獲得チャネル、飯ログ＝資産。<b>主従を逆にしない</b>（コンサルが本業化＝受託＝rung3への逆戻り）。②認定・コミュニティに寄せすぎない＝協会化の罠。資産はあくまでSaaS。③創業者依存を増やさない＝exit価値を殺す。コンサルは「梯子として使い、登ったら蹴る」。</p>
+    </div>
+  </section>
+
+  <footer>飯ログ 事業＆GTM 概要 ／ 平田 ／ 2026-06-08  — 内部検討用ドラフト</footer>
+
+</div>
+</body>
+</html>
